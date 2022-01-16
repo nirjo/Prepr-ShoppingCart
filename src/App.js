@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
-import Basket from './components/Basket';
+import Cart from './pages/Cart';
 import data from './data';
-import { useState } from 'react';
-function App() {
+import { Container, Nav, Navbar } from 'react-bootstrap';
+
+const App = () => {
   const { products } = data;
   const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
@@ -33,17 +34,23 @@ function App() {
   };
   return (
     <div className="App">
-      <Header countCartItems={cartItems.length}></Header>
-      <div className="row">
-        <Main products={products} onAdd={onAdd}></Main>
-        <Basket
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-        ></Basket>
-      </div>
+      <>
+        <Navbar>
+          <Container>
+            <Header countCartItems={cartItems.length}></Header>
+            <div className="row">
+              <Main products={products} onAdd={onAdd}></Main>
+              <Cart
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              ></Cart>
+            </div>
+          </Container>
+        </Navbar>
+      </>
     </div>
   );
-}
+};
 
 export default App;

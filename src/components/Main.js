@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product';
 
-export default function Main(props) {
+const Main = (props) => {
   const { products, onAdd } = props;
   return (
     <main className="block col-2">
@@ -13,4 +13,5 @@ export default function Main(props) {
       </div>
     </main>
   );
-}
+};
+export default Main;

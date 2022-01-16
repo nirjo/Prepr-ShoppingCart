@@ -1,24 +1,23 @@
 import React from 'react';
+import { Container, Dropdown, FormControl, Nav, Navbar } from 'react-bootstrap';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
 
-export default function Header(props) {
+const Header = (props) => {
   return (
-    <header className="block row center">
+    <Navbar
+      bg="primary"
+      variant="dark"
+      style={{ height: 40 }}
+      className="block row center"
+    >
       <div>
         <a href="#/">
           <h1>Prepr-Shopping Cart</h1>
         </a>
       </div>
-      <div>
-        <a href="#/cart">
-          Cart{' '}
-          {props.countCartItems ? (
-            <button className="badge">{props.countCartItems}</button>
-          ) : (
-            ''
-          )}
-        </a>{' '}
-        <a href="#/signin"> SignIn</a>
-      </div>
-    </header>
+      <div></div>
+    </Navbar>
   );
-}
+};
+export default Header;
